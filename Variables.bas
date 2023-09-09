@@ -1,14 +1,14 @@
 Attribute VB_Name = "mdlVariables"
 Option Explicit
 '######################             GERAL        #######################
-Public Const strPasswordApproval = "minions2015"
+Public Const strPasswordApproval = "password"
 Public Const strAmbiente = "producao" '"desenvolvimento"
 'Email desenvolvimento
 Public Const strEmailTeste = "admin1@guest.companyname.com"
 '*****************************************
-'           Emails de produÁ„o
+'           Emails de produ√ß√£o
 '*****************************************
-'######################      REQUISI«√O DE PESSOAS      #######################
+'######################      REQUISI√á√ÉO DE PESSOAS      #######################
 '
 Public Const strEmailRP_BP_RS = _
     "admin1@companyname.com" & ";" & _
@@ -58,7 +58,7 @@ Public Const strEmailRP_RS_Informa = _
 'Public Const strEmailRP_RS_Informa_Confidencial = _
 '    "edson.petizme@companyname.com" & ";" & _
 '    "natalie.amancio@companyname.com"
-'######################         MOVIMENTA«√O        #######################
+'######################         MOVIMENTA√á√ÉO        #######################
     
 Public Const strEmailMV_BP_Facilities_IT_MOV = _
     "admin1@companyname.com" & ";" & _
@@ -84,7 +84,7 @@ Public Const strEmailMV_RS_Folha_MOV = _
 'Public Const strEmailMV_RS_Folha_MOV_Confidencial = _
 '    "admin@guest.companyname.com"
 
-'######################  SOLICITA«√O DE DESLIGAMENTO #######################
+'######################  SOLICITA√á√ÉO DE DESLIGAMENTO #######################
 Public Const strEmailSD_RS_Folha_SD = _
     "admin@guest.companyname.com" & ";" & _
     "admin@companyname.com" & ";" & _
@@ -159,19 +159,19 @@ Function VerificaEnvioIT(listaEmail As String, tipoEnvio) As String
     VerificaEnvioIT = listaEmail
     
     If (tipoEnvio = "RP") Then
-        If ((UCase(ThisWorkbook.Sheets("REQUISI«√O DE PESSOAL").Range("CARGORP")) = "PROMOTOR" Or UCase(ThisWorkbook.Sheets("REQUISI«√O DE PESSOAL").Range("CARGORP")) = "PROMOTOR PANELISTA")) Then
+        If ((UCase(ThisWorkbook.Sheets("REQUISI√á√ÉO DE PESSOAL").Range("CARGORP")) = "PROMOTOR" Or UCase(ThisWorkbook.Sheets("REQUISI√á√ÉO DE PESSOAL").Range("CARGORP")) = "PROMOTOR PANELISTA")) Then
             VerificaEnvioIT = Replace(VerificaEnvioIT, "tkt.brazil.support@companyname.com;", "")
             VerificaEnvioIT = Replace(VerificaEnvioIT, "edson.petizme@companyname.com;", "")
             VerificaEnvioIT = Replace(VerificaEnvioIT, "DLL-BRA08-ITS-Team@companyname.com;", "")
         End If
     ElseIf (tipoEnvio = "MV") Then
-        If ((UCase(ThisWorkbook.Sheets("MOVIMENTA«√O").Range("C19")) = "PROMOTOR" Or UCase(ThisWorkbook.Sheets("MOVIMENTA«√O").Range("C19")) = "PROMOTOR PANELISTA")) Then
+        If ((UCase(ThisWorkbook.Sheets("MOVIMENTA√á√ÉO").Range("C19")) = "PROMOTOR" Or UCase(ThisWorkbook.Sheets("MOVIMENTA√á√ÉO").Range("C19")) = "PROMOTOR PANELISTA")) Then
             VerificaEnvioIT = Replace(VerificaEnvioIT, "tkt.brazil.support@companyname.com;", "")
             VerificaEnvioIT = Replace(VerificaEnvioIT, "edson.petizme@companyname.com;", "")
             VerificaEnvioIT = Replace(VerificaEnvioIT, "DLL-BRA08-ITS-Team@companyname.com;", "")
         End If
     ElseIf (tipoEnvio = "SD") Then
-        If ((UCase(ThisWorkbook.Sheets("SOLICITA«√O DE DESLIGAMENTO").Range("CARGORD")) = "PROMOTOR" Or UCase(ThisWorkbook.Sheets("SOLICITA«√O DE DESLIGAMENTO").Range("CARGORD")) = "PROMOTOR PANELISTA")) Then
+        If ((UCase(ThisWorkbook.Sheets("SOLICITA√á√ÉO DE DESLIGAMENTO").Range("CARGORD")) = "PROMOTOR" Or UCase(ThisWorkbook.Sheets("SOLICITA√á√ÉO DE DESLIGAMENTO").Range("CARGORD")) = "PROMOTOR PANELISTA")) Then
             VerificaEnvioIT = Replace(VerificaEnvioIT, "tkt.brazil.support@companyname.com;", "")
             VerificaEnvioIT = Replace(VerificaEnvioIT, "edson.petizme@companyname.com;", "")
             VerificaEnvioIT = Replace(VerificaEnvioIT, "DLL-BRA08-ITS-Team@companyname.com;", "")
@@ -188,7 +188,7 @@ Dim codiA   As String
 Dim codiB   As String
 
 'Caracteres impeditivos
-codiA = "‡·‚„‰ËÈÍÎÏÌÓÔÚÛÙıˆ˘˙˚¸¿¡¬√ƒ»… ÀÃÕŒ“”‘’÷Ÿ⁄€‹Á«Ò—-'¥)([]/\*-+.,!@#$%®&ßπ≤≥£¢¨"
+codiA = "√†√°√¢√£√§√®√©√™√´√¨√≠√Æ√Ø√≤√≥√¥√µ√∂√π√∫√ª√º√Ä√Å√Ç√É√Ñ√à√â√ä√ã√å√ç√é√í√ì√î√ï√ñ√ô√ö√õ√ú√ß√á√±√ë-'¬¥)([]/\*-+.,!@#$%¬®&¬ß¬π¬≤¬≥¬£¬¢¬¨"
 'Caracteres substitutivos
 codiB = "aaaaaeeeeiiiiooooouuuuAAAAAEEEEIIIOOOOOUUUUcCnN____________________________"
     
